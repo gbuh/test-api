@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertiesLoader {
-    public static final Properties PROPERTIES;
+    private static final Properties PROPERTIES;
     private static final String PROPERTIES_PATH = "test.properties";
     private static final String BASE_URI = "base_uri";
     private static final String API_USERS = "api_users";

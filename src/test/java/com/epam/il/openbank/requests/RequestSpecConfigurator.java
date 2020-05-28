@@ -1,4 +1,4 @@
-package com.epam.il.openbank.specs;
+package com.epam.il.openbank.requests;
 
 import com.epam.il.openbank.util.PropertiesLoader;
 import io.restassured.builder.RequestSpecBuilder;
@@ -16,14 +16,14 @@ public class RequestSpecConfigurator {
     /**
      * Get a base RequestSpecification.
      *
-     * @param parameters for path configure
+     * @param basePath for path configure
      * @return RequestSpecification object
      */
-    public static RequestSpecification getBaseRequestSpecification(String parameters) {
+    public static RequestSpecification getBaseRequestSpecification(String basePath) {
         return new RequestSpecBuilder()
                 .setBaseUri(PropertiesLoader.getBaseUri())
                 .setContentType(ContentType.JSON)
-                .setBasePath(parameters)
+                .setBasePath(basePath)
                 .build();
     }
 }

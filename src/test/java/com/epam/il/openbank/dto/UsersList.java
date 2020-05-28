@@ -1,15 +1,23 @@
 package com.epam.il.openbank.dto;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
+/**
+ * Presenting information that will be retrieved on request to resource 'https://reqres.in' at the '/api/users'
+ * endpoint by the GET method using the existing page parameter. Request example, '/api/users?page=2'.
+ */
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class UsersList {
 
     private int page;
-    private int per_page;
+    private int perPage;
     private int total;
-    private int total_pages;
+    private int totalPages;
     private List<UserInfo> data;
     private Ad ad;
 
@@ -17,16 +25,16 @@ public class UsersList {
         return page;
     }
 
-    public int getPer_page() {
-        return per_page;
+    public int getPerPage() {
+        return perPage;
     }
 
     public int getTotal() {
         return total;
     }
 
-    public int getTotal_pages() {
-        return total_pages;
+    public int getTotalPages() {
+        return totalPages;
     }
 
     public List<UserInfo> getData() {
@@ -48,11 +56,11 @@ public class UsersList {
 
         if (page != usersList.page)
             return false;
-        if (per_page != usersList.per_page)
+        if (perPage != usersList.perPage)
             return false;
         if (total != usersList.total)
             return false;
-        if (total_pages != usersList.total_pages)
+        if (totalPages != usersList.totalPages)
             return false;
         if (!data.equals(usersList.data))
             return false;
@@ -62,18 +70,17 @@ public class UsersList {
     @Override
     public int hashCode() {
         int result = page;
-        result = 31 * result + per_page;
+        result = 31 * result + perPage;
         result = 31 * result + total;
-        result = 31 * result + total_pages;
+        result = 31 * result + totalPages;
         result = 31 * result + data.hashCode();
         result = 31 * result + ad.hashCode();
         return result;
     }
 
     public boolean areAllFieldsNotNull() {
-        boolean areReferenceTypesNotNull = Stream.of(page, per_page, total, total_pages)
-                .noneMatch(Objects::isNull);
-        boolean arePrimitiveTypesNotZero = Stream.of(page, per_page, total, total_pages).anyMatch(field -> field != 0);
+        boolean areReferenceTypesNotNull = Stream.of(page, perPage, total, totalPages).noneMatch(Objects::isNull);
+        boolean arePrimitiveTypesNotZero = Stream.of(page, perPage, total, totalPages).anyMatch(field -> field != 0);
         return areReferenceTypesNotNull && arePrimitiveTypesNotZero;
     }
 }

@@ -1,5 +1,10 @@
 package com.epam.il.openbank.dto;
 
+/**
+ * Representation of additional information about the company.
+ *
+ * @see com.epam.il.openbank.dto.UsersList class.
+ */
 public class Ad {
 
     private String company;

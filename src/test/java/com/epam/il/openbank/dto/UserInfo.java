@@ -1,11 +1,20 @@
 package com.epam.il.openbank.dto;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
+/**
+ * Representation of information about the user.
+ *
+ * @see com.epam.il.openbank.dto.UsersList class.
+ */
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class UserInfo {
 
     private int id;
     private String email;
-    private String first_name;
-    private String last_name;
+    private String firstName;
+    private String lastName;
     private String avatar;
 
     public int getId() {
@@ -16,12 +25,12 @@ public class UserInfo {
         return email;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getAvatar() {
@@ -41,9 +50,9 @@ public class UserInfo {
             return false;
         if (!email.equals(userInfo.email))
             return false;
-        if (!first_name.equals(userInfo.first_name))
+        if (!firstName.equals(userInfo.firstName))
             return false;
-        if (!last_name.equals(userInfo.last_name))
+        if (!lastName.equals(userInfo.lastName))
             return false;
         return avatar.equals(userInfo.avatar);
     }
@@ -52,8 +61,8 @@ public class UserInfo {
     public int hashCode() {
         int result = id;
         result = 31 * result + email.hashCode();
-        result = 31 * result + first_name.hashCode();
-        result = 31 * result + last_name.hashCode();
+        result = 31 * result + firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
         result = 31 * result + avatar.hashCode();
         return result;
     }

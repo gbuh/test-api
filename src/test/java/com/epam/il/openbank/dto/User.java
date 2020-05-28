@@ -1,5 +1,13 @@
 package com.epam.il.openbank.dto;
 
+/**
+ * Representation of a user registration object that will be retrieved on request to resource 'https://reqres.in' at
+ * the '/api/users' endpoint by the POST method. Request example, '/api/users' using the next body
+ * {
+ * "name": "morpheus",
+ * "job": "leader"
+ * }
+ */
 public class User {
 
     private String name;
